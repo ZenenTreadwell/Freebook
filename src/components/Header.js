@@ -1,31 +1,53 @@
 import React from 'react';
 
-import { Container, Jumbotron, Card, Row, Navbar } from 'react-bootstrap';
+import { Container, Jumbotron, Card, Row, Navbar, Dropdown, Button, ButtonGroup } from 'react-bootstrap';
 
 class Header extends React.Component {
 
-    toNavHTML(links) {
+    // Builder for the navigation bar
+    navBar = (links, maxLen) => {
+        let len = links.length;
+
+        if (len <= maxLen) {
+            // Return basic navbar
+            return (
+                <ButtonGroup className="bg-light text-dark ml-auto" aria-label="Navigation Links" style={{marginRight:"-30px"}}>
+                    { links.map(this.buildLink) }
+                </ButtonGroup>
+            );
+        } else {
+            // return navbar with dropdown
+            return (
+                <ButtonGroup className="bg-light text-dark ml-auto" aria-label="Navigation Links">
+                    { links.slice(0,maxLen-1).map(this.buildLink) }
+                    { this.buildDropdown(links.slice(maxLen)) }
+                </ButtonGroup>
+            );
+        }
+    }
+
+    buildLink = (json) => {
+        return <Button className="bg-light text-dark" variant="light" href={json.addr}>{json.name}</Button>;
+    }
+
+    // Provides a dropdown menu for link overflow
+    buildDropdown = (more_links) => {
+        console.log(more_links);
+
         return (
-        <ul className="navbar-nav ml-auto">
-            {links.map(this.buildNav)}
-            // Fix Dropdown Menu
-            <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <Dropdown>
+                <Dropdown.Toggle className="bg-light text-dark" variant="primary" id="dropdown-basic" style={{marginRight:"-30px"}}>
                     More
-                </a>
-                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a className="dropdown-item" href="#">Action</a>
-                    <a className="dropdown-item" href="#">Another action</a>
-                    <div className="dropdown-divider"></div>
-                    <a className="dropdown-item" href="#">Something else here</a>
-                </div>
-            </li>
-        </ul>
+                </Dropdown.Toggle>
+                <Dropdown.Menu style={{ zIndex: 2 }}>
+                    { more_links.map(this.buildDropEntry) }
+                </Dropdown.Menu>
+            </Dropdown>
         );
     }
 
-    buildNav = (json) => {
-        return <li className="nav-link border-right"><a href={json.addr}>{json.name}</a></li>;
+    buildDropEntry = (json) => {
+        return <Dropdown.Item href={json.addr}>{json.name}</Dropdown.Item>
     }
 
     getHeaderStyle = (user) => {
@@ -46,8 +68,17 @@ class Header extends React.Component {
                         <p className="col-9 align-self-end mb-4" style={nameStyle}>Zenen Treadwell</p>
                     </Row>
                     <Card className="col-12 align-bottom" style={navCardStyle}>
-                        <Navbar className="col-10 col-sm-8 ml-auto">
-                            {this.toNavHTML(user.links)}
+                        <Navbar className="d-flex d-sm-none col-10 ml-auto mr-1">
+                            {this.navBar(user.links, 3)}
+                        </Navbar>
+                        <Navbar className="d-none d-sm-flex d-md-none col-11 ml-auto mr-1">
+                            {this.navBar(user.links, 4)}
+                        </Navbar>
+                        <Navbar className="d-none d-md-flex d-lg-none col-11 ml-auto mr-1">
+                            {this.navBar(user.links, 5)}
+                        </Navbar>
+                        <Navbar className="d-none d-lg-flex col-11 ml-auto">
+                            {this.navBar(user.links, 6)}
                         </Navbar>
                     </Card>
                 </Jumbotron>
