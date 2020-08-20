@@ -1,28 +1,35 @@
 import React from 'react';
 
-import { Card, ListGroup, Row } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
+
+import icoEntry from './icoEntry.js';
 
 class About extends React.Component {
 
     // This will take each entry in the about object and output a listGroup member with a logo based on the key
-    listEntry = (key, value) => {
-        return <Row></Row>;
+    listInfo = (json) => {
+        let keys = Object.keys(json);
+        
+        return (
+            <ul style={{listStyleType: "none", lineHeight:"150%"}}>
+                {keys.map( key => icoEntry(key,json[key]))}
+            </ul>
+        );
     }
 
     render() {
-        let about = this.props.about;
+        let intro = this.props.intro;
         return (
-            <Card className="col-12 col-md-4 bg-light">
+            <Card className="bg-light mb-3">
                 <Card.Body>
-                    <Card.Title className="text-center"><i>"Upstanding citizen & totally average human being"</i></Card.Title>
-                    <Card.Text className="text-justify"><small>{about.intro}</small></Card.Text>
+                    <Card.Title className="text-center"><i>"{intro.quote}"</i></Card.Title>
+                    <hr/>
+                    <Card.Text className="text-justify"><small>{intro.text}</small></Card.Text>
+                    <hr/>
+                    {this.listInfo(this.props.about)}
                 </Card.Body>
-                <ListGroup variant="flush">
-                    <ListGroup.Item>Test</ListGroup.Item>
-                    <ListGroup.Item>Test2</ListGroup.Item>
-                </ListGroup>
             </Card>
-        )
+        );
     }
 }
     

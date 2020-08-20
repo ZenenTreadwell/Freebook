@@ -20,20 +20,18 @@ class Header extends React.Component {
             return (
                 <ButtonGroup className="bg-light text-dark ml-auto" aria-label="Navigation Links">
                     { links.slice(0,maxLen-1).map(this.buildLink) }
-                    { this.buildDropdown(links.slice(maxLen)) }
+                    { this.buildDropdown(links.slice(maxLen-1)) }
                 </ButtonGroup>
             );
         }
     }
 
     buildLink = (json) => {
-        return <Button className="bg-light text-dark" variant="light" href={json.addr}>{json.name}</Button>;
+        return <Button className="bg-light text-dark" key={json.id} variant="light" href={json.addr}>{json.name}</Button>;
     }
 
     // Provides a dropdown menu for link overflow
     buildDropdown = (more_links) => {
-        console.log(more_links);
-
         return (
             <Dropdown>
                 <Dropdown.Toggle className="bg-light text-dark" variant="primary" id="dropdown-basic" style={{marginRight:"-30px"}}>
@@ -47,7 +45,7 @@ class Header extends React.Component {
     }
 
     buildDropEntry = (json) => {
-        return <Dropdown.Item href={json.addr}>{json.name}</Dropdown.Item>
+        return <Dropdown.Item key={json.id} href={json.addr}>{json.name}</Dropdown.Item>
     }
 
     getHeaderStyle = (user) => {
@@ -62,7 +60,7 @@ class Header extends React.Component {
 
         return (
             <Container className="col-12">
-                <Jumbotron className="col-12 col-sm-10 rounded container-fluid mx-auto m-3 p-3" style={this.getHeaderStyle(user)}>
+                <Jumbotron className="col-12 col-sm-11 col-md-10 rounded container-fluid mx-auto m-3 p-3" style={this.getHeaderStyle(user)}>
                     <Row className="pl-4">
                         <img src={user.profile_pic} alt="Profile" className="img-thumbnail rounded-circle w-25"  style={{ zIndex: 1 }}/>
                         <p className="col-9 align-self-end mb-4" style={nameStyle}>Zenen Treadwell</p>
