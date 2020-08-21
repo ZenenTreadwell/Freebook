@@ -25,8 +25,8 @@ class App extends React.Component {
             profile_pic,
             banner,
             links: [
-                { id: 1, name: "LinkedIn", addr: "https://www.linkedin.com/in/zenen-treadwell/"},
-                { id: 2, name: "Github", addr: "https://github.com/ZenenTreadwell/"},
+                { id: 1, name: "Github", addr: "https://github.com/ZenenTreadwell/"},
+                { id: 2, name: "LinkedIn", addr: "https://www.linkedin.com/in/zenen-treadwell/"},
                 { id: 3, name: "Instagram", addr: "https://www.instagram.com/zenentreadwell/"},
                 { id: 4, name: "Reddit", addr: "https://www.reddit.com/user/Zenen/"},
                 { id: 5, name: "Facebook", addr: "https://www.facebook.com/zenenenenen"},
