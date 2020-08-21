@@ -20,6 +20,12 @@ library.add( faBirthdayCake, faPhone, faCompass, faHome, faEnvelope, faVenusMars
 
 class App extends React.Component {
     state = {
+        activeUser: {
+            name: "Zenen Treadwell",
+            profile: '#',
+            profile_pic,
+        },
+
         header: {
             name: "Zenen Treadwell",
             profile_pic,
@@ -50,19 +56,26 @@ class App extends React.Component {
         posts: [
             {
                 type: "text",
+                user: {
+                    name: "Zenen Treadwell",
+                    profile: '#',
+                    profile_pic,
+                },
+                posted: Date(),
                 content: "Wow, building profile templates is hard work!",
             }
         ],
-    }
+    };
 
     newPost = (text) => {
-        console.log("making a new post. state is now:");
         let post = {
             type: "text",
+            user: this.state.activeUser,
+            posted: Date(),
             content: text,
         };
 
-        this.setState({posts:[...this.state.posts,post]}, () => console.log(this.state.posts));
+        this.setState({posts:[...this.state.posts,post]});
     }
 
     render() {
@@ -76,7 +89,7 @@ class App extends React.Component {
 
                 <Container fluid className="col-12 col-md-7 px-0">
                     <NewPost newPost={this.newPost} />
-                    <PostFeed posts={this.state.posts} />
+                    <PostFeed user={this.state.header} posts={this.state.posts} />
                 </Container>
             </Row>
             </div>
