@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "34a2386f9fb68aa8832440509d369837",
+    "revision": "8f20f194b7d8c25d37e23c1d508dda99",
     "url": "/Freebook/index.html"
   },
   {
-    "revision": "7ecedbd2da32add91461",
+    "revision": "3b40975fe10ab1982949",
     "url": "/Freebook/static/css/2.98f886d0.chunk.css"
   },
   {
-    "revision": "0d538c91796f57e3e72b",
+    "revision": "ef624e16c6620fef93c4",
     "url": "/Freebook/static/css/main.2cdc5a66.chunk.css"
   },
   {
-    "revision": "7ecedbd2da32add91461",
-    "url": "/Freebook/static/js/2.d21613ae.chunk.js"
+    "revision": "3b40975fe10ab1982949",
+    "url": "/Freebook/static/js/2.09a9d527.chunk.js"
   },
   {
     "revision": "5ac48c47bb3912b14c2d8de4f56d5ae8",
-    "url": "/Freebook/static/js/2.d21613ae.chunk.js.LICENSE.txt"
+    "url": "/Freebook/static/js/2.09a9d527.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "0d538c91796f57e3e72b",
-    "url": "/Freebook/static/js/main.93a9912f.chunk.js"
+    "revision": "ef624e16c6620fef93c4",
+    "url": "/Freebook/static/js/main.5aca757a.chunk.js"
   },
   {
     "revision": "eccb0bca435650fac412",
