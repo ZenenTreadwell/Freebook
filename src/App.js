@@ -62,7 +62,7 @@ class App extends React.Component {
                     profile_pic,
                 },
                 posted: Date(),
-                content: "Wow, building profile templates is hard work!",
+                content: "So you might be asking: where's the backend? Well, I recently moved across the country from Cambridge, ON to Victoria, BC. A lot of my belongings are still in transit - including the Raspberry Pi that I usually use to host my webpage. Rather than attempt to recreate the entire setup on  github.io, I thought it best to whip up a quick placeholder page so that I can focus on what's most important - getting situated in my new home! Expect updates soon.",
             }
         ],
     };
