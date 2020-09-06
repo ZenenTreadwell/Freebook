@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2b3d7beb49c1acf6dec7741d6156255f",
+    "revision": "4f692e3ff526f1b06e617d2a727ccfbb",
     "url": "/Freebook/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Freebook/static/css/2.f3cffc9e.chunk.css"
   },
   {
-    "revision": "e2ef16b16670d204117c",
+    "revision": "be0b209e6cf197317794",
     "url": "/Freebook/static/css/main.2cdc5a66.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Freebook/static/js/2.50331868.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "e2ef16b16670d204117c",
-    "url": "/Freebook/static/js/main.bf3db7ee.chunk.js"
+    "revision": "be0b209e6cf197317794",
+    "url": "/Freebook/static/js/main.ab292992.chunk.js"
   },
   {
     "revision": "eccb0bca435650fac412",

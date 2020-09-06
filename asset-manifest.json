@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Freebook/static/css/main.2cdc5a66.chunk.css",
-    "main.js": "/Freebook/static/js/main.bf3db7ee.chunk.js",
-    "main.js.map": "/Freebook/static/js/main.bf3db7ee.chunk.js.map",
+    "main.js": "/Freebook/static/js/main.ab292992.chunk.js",
+    "main.js.map": "/Freebook/static/js/main.ab292992.chunk.js.map",
     "runtime-main.js": "/Freebook/static/js/runtime-main.e463d5a5.js",
     "runtime-main.js.map": "/Freebook/static/js/runtime-main.e463d5a5.js.map",
     "static/css/2.f3cffc9e.chunk.css": "/Freebook/static/css/2.f3cffc9e.chunk.css",
     "static/js/2.50331868.chunk.js": "/Freebook/static/js/2.50331868.chunk.js",
     "static/js/2.50331868.chunk.js.map": "/Freebook/static/js/2.50331868.chunk.js.map",
     "index.html": "/Freebook/index.html",
-    "precache-manifest.a5966bd5c213053066b0b451f501f158.js": "/Freebook/precache-manifest.a5966bd5c213053066b0b451f501f158.js",
+    "precache-manifest.e9eeca8725929c560e7a9252aff82206.js": "/Freebook/precache-manifest.e9eeca8725929c560e7a9252aff82206.js",
     "service-worker.js": "/Freebook/service-worker.js",
     "static/css/2.f3cffc9e.chunk.css.map": "/Freebook/static/css/2.f3cffc9e.chunk.css.map",
     "static/css/main.2cdc5a66.chunk.css.map": "/Freebook/static/css/main.2cdc5a66.chunk.css.map",
@@ -22,6 +22,6 @@
     "static/css/2.f3cffc9e.chunk.css",
     "static/js/2.50331868.chunk.js",
     "static/css/main.2cdc5a66.chunk.css",
-    "static/js/main.bf3db7ee.chunk.js"
+    "static/js/main.ab292992.chunk.js"
   ]
 }
