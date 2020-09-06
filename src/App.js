@@ -32,10 +32,10 @@ class App extends React.Component {
             banner,
             links: [
                 { id: 1, name: "Github", addr: "https://github.com/ZenenTreadwell/"},
-                { id: 2, name: "LinkedIn", addr: "https://www.linkedin.com/in/zenen-treadwell/"},
-                { id: 3, name: "Instagram", addr: "https://www.instagram.com/zenentreadwell/"},
-                { id: 4, name: "Reddit", addr: "https://www.reddit.com/user/Zenen/"},
-                { id: 5, name: "Facebook", addr: "https://www.facebook.com/zenenenenen"},
+                { id: 2, name: "Resume", addr: "https://zenentreadwell.github.io/Freebook/resume/"},
+                { id: 3, name: "LinkedIn", addr: "https://www.linkedin.com/in/zenen-treadwell/"},
+                { id: 4, name: "Instagram", addr: "https://www.instagram.com/zenentreadwell/"},
+                { id: 5, name: "Reddit", addr: "https://www.reddit.com/user/Zenen/"},
             ],
         },
 
@@ -54,6 +54,16 @@ class App extends React.Component {
         },
 
         posts: [
+            {
+                type: "text",
+                user: {
+                    name: "Zenen Treadwell",
+                    profile: '#',
+                    profile_pic,
+                },
+                posted: Date(),
+                content: "Want to know more about what I can do? Check out my resume! It's linked up on the navbar.",
+            },
             {
                 type: "text",
                 user: {
