@@ -92,8 +92,8 @@ class App extends React.Component {
         return (
             <div className="App col-12 col-xl-10 no-gutters  mx-auto">
             <Header userInfo={this.state.header} />
-            <Row className="col-12 col-sm-11 col-md-10 mx-auto">
-                <Container fluid className="col-12 col-md-5 px-0 pr-md-3 no-gutters" style={{zIndex:-1}}>
+            <Row className="col-12 col-sm-11 col-md-10 mx-auto" >
+                <Container fluid className="col-12 col-md-5 px-0 pr-md-3 no-gutters">
                     <About intro={this.state.intro} about={this.state.about} />
                 </Container>
 

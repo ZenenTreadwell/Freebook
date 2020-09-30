@@ -11,14 +11,14 @@ class Header extends React.Component {
         if (len <= maxLen) {
             // Return basic navbar
             return (
-                <ButtonGroup className="bg-light text-dark ml-auto" aria-label="Navigation Links" style={{marginRight:"-30px"}}>
+                <ButtonGroup className="bg-light text-dark ml-auto" aria-label="Navigation Links" style={{ marginRight:"-30px"}}>
                     { links.map(this.buildLink) }
                 </ButtonGroup>
             );
         } else {
             // return navbar with dropdown
             return (
-                <ButtonGroup className="bg-light text-dark ml-auto" aria-label="Navigation Links">
+                <ButtonGroup className="bg-light text-dark ml-auto" aria-label="Navigation Links" style={{ zIndex: 10 }}>
                     { links.slice(0,maxLen-1).map(this.buildLink) }
                     { this.buildDropdown(links.slice(maxLen-1)) }
                 </ButtonGroup>
@@ -37,7 +37,7 @@ class Header extends React.Component {
                 <Dropdown.Toggle className="bg-light text-dark" variant="primary" id="dropdown-basic" style={{marginRight:"-30px"}}>
                     More
                 </Dropdown.Toggle>
-                <Dropdown.Menu style={{ zIndex: 2 }}>
+                <Dropdown.Menu >
                     { more_links.map(this.buildDropEntry) }
                 </Dropdown.Menu>
             </Dropdown>
@@ -59,7 +59,7 @@ class Header extends React.Component {
         let user = this.props.userInfo;
 
         return (
-            <Container className="col-12">
+            <Container className="col-12" style={{ zIndex: 2 }}>
                 <Jumbotron className="col-12 col-sm-11 col-md-10 rounded container-fluid mx-auto m-3 p-3" style={this.getHeaderStyle(user)}>
                     <Row className="pl-4">
                         <div className="d-flex d-sm-none">

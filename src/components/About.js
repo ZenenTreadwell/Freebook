@@ -20,7 +20,7 @@ class About extends React.Component {
     render() {
         let intro = this.props.intro;
         return (
-            <Card className="bg-light mb-3">
+            <Card id="about" className="bg-light mb-3" style={{ zIndex: -1 }}>
                 <Card.Body>
                     <Card.Title className="text-center"><i>"{intro.quote}"</i></Card.Title>
                     <hr/>
