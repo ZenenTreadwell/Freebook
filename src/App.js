@@ -46,7 +46,7 @@ class App extends React.Component {
 
         about: {
             hometown: "Cambridge, ON",
-            loc: "Colwood, BC",
+            loc: "Victoria, BC",
             birthday: "January 25th, 1996",
             phone: "+1-519-242-7741",
             email: "zenen52@gmail.com",
