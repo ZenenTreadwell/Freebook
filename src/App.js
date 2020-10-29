@@ -2,6 +2,7 @@
 import React from 'react';
 import './App.css';
 import { Container, Row } from 'react-bootstrap';
+import axios from 'axios';
 
 // Components
 import Header from './components/Header.js';
@@ -19,62 +20,99 @@ import { faBirthdayCake, faPhone, faCompass, faHome, faEnvelope, faVenusMars, fa
 library.add( faBirthdayCake, faPhone, faCompass, faHome, faEnvelope, faVenusMars, faCircle );
 
 class App extends React.Component {
-    state = {
-        activeUser: {
-            name: "Zenen Treadwell",
-            profile: '#',
-            profile_pic,
-        },
-
-        header: {
-            name: "Zenen Treadwell",
-            profile_pic,
-            banner,
-            links: [
-                { id: 1, name: "Resume", addr: "https://zenentreadwell.github.io/resume/"},
-                { id: 2, name: "Github", addr: "https://github.com/ZenenTreadwell/"},
-                { id: 3, name: "LinkedIn", addr: "https://www.linkedin.com/in/zenen-treadwell/"},
-                { id: 4, name: "Instagram", addr: "https://www.instagram.com/zenentreadwell/"},
-                { id: 5, name: "Reddit", addr: "https://www.reddit.com/user/Zenen/"},
-            ],
-        },
-
-        intro: {
-            quote: "Upstanding citizen & totally average human being - not a wizard",
-            text: "Hi, I'm Zenen. I'm an amateur web developer looking to get my start in the industry. Some of my interests include music (listening, mixing, writing), yoga, cycling, treeplanting, rock climbing, and of course: software development! I arrived in Victoria this August, so let me know if you have any suggestions on places to see as a newcomer to the island.",
-        },
-
-        about: {
-            hometown: "Cambridge, ON",
-            loc: "Victoria, BC",
-            birthday: "January 25th, 1996",
-            phone: "+1-519-242-7741",
-            email: "zenen52@gmail.com",
-            pronouns: "he/him/his",
-        },
-
-        posts: [
-            {
-                type: "text",
-                user: {
-                    name: "Zenen Treadwell",
-                    profile: '#',
-                    profile_pic,
-                },
-                posted: Date(),
-                content: "Want to know more about what I can do? Check out my resume! It's linked up on the navbar.",
+    constructor(props) {
+        super(props);
+        this.state = {
+            viewCompleted: false,
+            data: [],
+            posts: [],
+            activeUser: {
+                name: "",
+                profile: '',
+                profile_pic,
             },
-            {
-                type: "text",
-                user: {
-                    name: "Zenen Treadwell",
-                    profile: '#',
-                    profile_pic,
-                },
-                posted: Date(),
-                content: "So you might be asking: where's the backend? Well, I recently moved across the country from Cambridge, ON to Victoria, BC. A lot of my belongings are still in transit - including the Raspberry Pi that I usually use to host my webpage. Rather than attempt to recreate the entire setup on  github.io, I thought it best to whip up a quick placeholder page so that I can focus on what's most important - getting situated in my new home! Expect updates soon.",
-            }
-        ],
+
+            header: {
+                name: "",
+                profile_pic,
+                banner,
+                links: [
+                ],
+            },
+
+            intro: {
+                quote: "",
+                text: "",
+            },
+
+            about: {
+            },
+
+//            posts: [
+//                {
+//                    type: "text",
+//                    user: {
+//                        name: "Zenen Treadwell",
+//                        profile: '#',
+//                        profile_pic,
+//                    },
+//                    posted: Date(),
+//                    content: "Want to know more about what I can do? Check out my resume! It's linked up on the navbar.",
+//                },
+//                {
+//                    type: "text",
+//                    user: {
+//                        name: "Zenen Treadwell",
+//                        profile: '#',
+//                        profile_pic,
+//                    },
+//                    posted: Date(),
+//                    content: "So you might be asking: where's the backend? Well, I recently moved across the country from Cambridge, ON to Victoria, BC. A lot of my belongings are still in transit - including the Raspberry Pi that I usually use to host my webpage. Rather than attempt to recreate the entire setup on  github.io, I thought it best to whip up a quick placeholder page so that I can focus on what's most important - getting situated in my new home! Expect updates soon.",
+//                }
+//            ],
+        };
+    };
+
+    componentDidMount = () => {
+        this.getProfile(1);
+    };
+
+
+    getProfile = (id=1) => {
+        axios
+        .get('/api/users/'+id)
+        .then(res => this.setState({
+            data: res.data,
+            profile: res.data.profile,
+            
+            activeUser: {
+                name: res.data.profile.name,
+                profile: res.data.profile_url,
+                profile_pic,
+            },
+
+            header: {
+                name: res.data.profile.name,
+                profile_pic,
+                banner,
+                links: res.data.profile.links,
+            },
+
+            intro: {
+                quote: res.data.profile.quote,
+                text: res.data.profile.blurb,
+            },
+
+            about: res.data.profile.about,
+        }))
+        .catch(err => console.log(err));
+    };
+
+    getPosts = () => {
+        axios
+        .get('/api/posts/')
+        .then(res => this.setState({posts: res.data}))
+        .catch(err => console.log(err));
     };
 
     newPost = (text) => {
@@ -86,7 +124,9 @@ class App extends React.Component {
         };
 
         this.setState({posts:[...this.state.posts,post]});
-    }
+
+        console.log(this.state.posts);
+    };
 
     render() {
         return (
@@ -99,7 +139,7 @@ class App extends React.Component {
 
                 <Container fluid className="col-12 col-md-7 px-0">
                     <NewPost newPost={this.newPost} />
-                    <PostFeed user={this.state.header} posts={this.state.posts} />
+                    <PostFeed user={this.state.header} getPosts={this.getPosts} posts={this.state.posts} />
                 </Container>
             </Row>
             </div>

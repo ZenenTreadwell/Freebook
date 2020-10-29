@@ -3,6 +3,10 @@ import React from 'react';
 import { Row, Container, Card } from 'react-bootstrap';
 
 class PostFeed extends React.Component {
+    componentDidMount() {
+        this.props.getPosts();
+    };
+
     buildPost = (post) => {
         let date = Date(post.posted);
 
