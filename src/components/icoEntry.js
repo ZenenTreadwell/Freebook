@@ -31,7 +31,7 @@ function icoEntry(key, value) {
     };
 
     return (
-        <li><FontAwesomeIcon icon={icoName} style={{marginRight: '6px'}}/>{out}</li>
+        <li><FontAwesomeIcon icon={icoName} style={{marginRight: '6px'}} key={key}/>{out}</li>
     );
 }
 

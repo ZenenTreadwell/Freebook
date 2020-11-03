@@ -117,10 +117,11 @@ class App extends React.Component {
 
     newPost = (text) => {
         let post = {
-            type: "text",
+            post_type: "T",
             user: this.state.activeUser,
             posted: Date(),
-            content: text,
+            content: "<i><b>visitor posting not yet configured</b></i></br>"+text,
+            status: 1
         };
 
         this.setState({posts:[...this.state.posts,post]});
