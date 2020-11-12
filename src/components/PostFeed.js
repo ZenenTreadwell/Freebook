@@ -9,7 +9,7 @@ class PostFeed extends React.Component {
     };
 
     buildPost = (post) => {
-        let date = Date(post.created_on);
+        let date = new Date(post.created_on);
 
         if (post.post_type === "T") {
             return (
@@ -21,7 +21,7 @@ class PostFeed extends React.Component {
                             </Container>
                             <Card.Text className="col-10 pl-1 mt-3 float-left" style={{lineHeight: 1.0 }}>
                                 <a href={this.props.user.profile}>{this.props.user.name}</a><br/>
-                                <small>{`posted ${date.split(" ").slice(0,3).join(' ')}`}</small>
+                                <small>{`posted ${date.toString().split(" ").slice(0,3).join(' ')}`}</small>
                             </Card.Text>
                         </Row>
                         <Card.Text style={{lineHeight: 1.4}}>{parse(post.content)}</Card.Text>
